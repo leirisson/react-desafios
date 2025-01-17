@@ -7,7 +7,7 @@ export function TaskList({tasks}: TaskList){
         <ul>
             {
                 tasks.map(task  => (
-                    <li key={task}>{task}</li>
+                    <li key={task}>{task} <input type="radio" /></li>
                 ))
             }
         </ul>

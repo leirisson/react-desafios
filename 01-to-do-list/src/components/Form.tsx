@@ -2,7 +2,7 @@ import { useState } from "react";
 
 
 interface FormsProps {
-    addTask: (task:string) => void;
+    addTask: (task:object) => void;
 }
 
 export function Form({addTask}: FormsProps){
