@@ -1,27 +1,30 @@
-import { useState } from "react";
+
 
 export interface User {
     id: string;
     nome: string;
-    email:string;
+    email: string;
 }
 
-export interface Listuser {
-    listUSers: User[]
+export interface PropsListuser {
+    listUser: User[];
+    removeUser: (user: User) => void;
 }
 
 
 
-export function ListaUsers({handleList}: { handleList: () => User[] }){
-    const [users, setUsers] = useState<User[]>([])
+export function ListaUsers({ listUser, removeUser }: PropsListuser) {
 
-    setUsers(handleList())
-    return(
+    return (
         <>
             <ul>
                 {
-                    users.map(user => (
-                        <li key={user.id}> {user.nome} </li>
+                    listUser.map((user: User) => (
+                        <li key={user.id}>
+                            <p>{user.nome} </p>
+                            <p>{user.email} </p>
+                            <button onClick={() => removeUser(user)}> Remover</button>
+                        </li>
                     ))
                 }
             </ul>

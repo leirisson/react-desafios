@@ -1,27 +1,25 @@
 import { useState } from "react";
 import { Form } from "./components/Form";
-import { ListaUsers } from "./components/ListUsers";
-import { User } from './components/ListUsers';
+import { ListaUsers, User } from './components/ListUsers';
+
 
 export function App() {
-
-
-
   const [list, setList] = useState<User[]>([])
 
-  function handleUser({id, nome, email}: User){
-    const new_user: User = {id, nome, email}
+  function addUser({ id, nome, email }: User) {
+    const user: User = { id, nome, email }
 
-    setList(prevUser => [...prevUser, new_user])
-    
-    console.log(list)
-  }  
+    setList((addList) => [...addList, user])
+  }
 
+  function removeUser(user_: User) { // filtrando osuarios
+    setList((prev) => prev.filter((user) => user.id !== user_.id))
+  }
 
   return (
     <>
-     <Form handleUser={handleUser}/>
-
+      <Form handleUser={addUser} />
+      <ListaUsers listUser={list} removeUser={removeUser} />
 
     </>
   )
