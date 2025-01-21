@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .title {
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .quantity {
+    font-size: 20px;
+    color: #555;
+    margin: 10px 0;
+  }
+  
+  .button-container {
+    display: flex;
+    gap: 10px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  button.increment {
+    background-color: #4caf50;
+  }
+  
+  button.increment:hover {
+    background-color: #45a049;
+  }
+  
+  button.decrement {
+    background-color: #f44336;
+  }
+  
+  button.decrement:hover {
+    background-color: #e53935;
+  }
+  
