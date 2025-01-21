@@ -1,0 +1,21 @@
+.titulo{
+  text-align: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  border-bottom: 1px solid #000;
+}
+
+main{
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem auto;
+  width: 90%;
+}
+.formContainer{
+background-color: blue;
+padding: 1rem;
+color:#fff;
+}
+
+.listaContainer{
+  background-color: red;
+}
