@@ -1,0 +1,47 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    flex-grow: 1;
+    border-radius: 5px;
+    gap: 1rem;
+    width: 80%;
+    margin: 3rem auto;
+    
+   
+}
+
+.apagar{
+    position: relative;
+    margin-top: 0;
+    margin-left: 15rem;
+    background-color: transparent;
+    border: none;
+    padding: .3rem;
+
+
+}
+.container__item{
+    display: flex;
+    padding: .5rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color:#1006a0;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, .3);
+    border-radius: 4px;
+    font-size: 2rem;
+}
+
+.header{
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    align-self: center;
+    font-weight: 600;
+    margin: .5rem;
+    width: 100%;
+}

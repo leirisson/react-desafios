@@ -13,6 +13,10 @@ export function PesquisarContato({filtrarContato}: PropsPesquisa) {
   function handleFormPEsquisa(event: FormEvent){
     event.preventDefault()
 
+    if (!pesquisa.trim()) {
+      alert('Por favor, insira um nome para buscar.');
+      return;
+    }
     filtrarContato(pesquisa)
   }
 
