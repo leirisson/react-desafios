@@ -1,35 +1,42 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { IContato } from './interfaces/IContato';
+import { FormContatos } from "./components/FormContatos";
+import { ListaDeContatos } from './components/ListaDeContatos';
+import { PesquisarContato } from './components/PesquisarContato';
 
-function App() {
-  const [count, setCount] = useState(0)
 
+export function App() {
+
+  const [listaDeContatos, setListaDeContatos] = useState<IContato[]>([])
+
+  function handleAdcionarContatoNaLista(contato: IContato): void {
+
+    setListaDeContatos(prevContato => [...prevContato, contato])
+  }
+
+  function handleDeletarContato(contato: IContato): void{
+    setListaDeContatos((prevCotato) => 
+    prevCotato.filter(contato_filtrado => contato_filtrado.id !== contato.id))
+  }
+
+  function handleFiltraContatos(contato: string){
+   
+    setListaDeContatos((prevContato) => 
+    prevContato.filter(contato_filtrado => contato_filtrado.telefone.includes(contato) ? alert(contato_filtrado.nome) : alert('Contato não encontrado' + contato_filtrado)))
+  }
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <h1>Gerenciador de Contatos</h1>
+      <PesquisarContato filtrarContato={handleFiltraContatos}/>
+      <FormContatos addContato={handleAdcionarContatoNaLista} />
+
+      <ListaDeContatos 
+      PassarLsitaDeContatos={listaDeContatos}
+      onDeletarContato={handleDeletarContato}
+
+      />
     </>
   )
 }
 
-export default App
+
