@@ -20,7 +20,12 @@ export function App() {
   }
 
   function handleFiltraContatos(contato: string){
-   
+   // falta corrigir a pesquisa por contato
+   /**
+    * 
+    * 
+    * 
+    */
     setListaDeContatos((prevContato) => 
     prevContato.filter(contato_filtrado => contato_filtrado.telefone.includes(contato) ? alert(contato_filtrado.nome) : alert('Contato não encontrado' + contato_filtrado)))
   }
