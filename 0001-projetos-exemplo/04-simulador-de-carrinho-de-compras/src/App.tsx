@@ -1,35 +1,63 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react"
+import { IProduto } from "./interfaces/IProduto"
 
-function App() {
-  const [count, setCount] = useState(0)
+
+export function App() {
+  const [produtos, setProdutos] = useState<IProduto[]>([
+    {
+      imgUrl: "https://example.com/images/smartphone.jpg",
+      titulo: "Smartphone XYZ",
+      descricaoDoProduto: "Smartphone com tela AMOLED de 6,5 polegadas, 128GB de armazenamento e câmera de 48MP.",
+      valorProduto: 2499.99,
+    },
+    {
+      imgUrl: "https://example.com/images/fone.jpg",
+      titulo: "Fone de Ouvido Bluetooth",
+      descricaoDoProduto: "Fone sem fio com cancelamento de ruído e bateria de longa duração.",
+      valorProduto: 399.99,
+    },
+    {
+      imgUrl: "https://example.com/images/notebook.jpg",
+      titulo: "Notebook ABC",
+      descricaoDoProduto: "Notebook com processador Intel i7, 16GB de RAM e SSD de 512GB.",
+      valorProduto: 5499.99,
+    },
+    {
+      imgUrl: "https://example.com/images/cafeteira.jpg",
+      titulo: "Cafeteira Elétrica",
+      descricaoDoProduto: "Cafeteira programável com capacidade para 1,5 litros e sistema de desligamento automático.",
+      valorProduto: 199.99,
+    },
+    {
+      imgUrl: "https://example.com/images/mochila.jpg",
+      titulo: "Mochila para Notebook",
+      descricaoDoProduto: "Mochila resistente à água, compatível com notebooks de até 15,6 polegadas.",
+      valorProduto: 149.99,
+    }
+  ])
+  const [carrinho, setCarrinho] = useState<IProduto[]>([])
+
+  // 1 - criar o componente para exibir os produtos 
+  // 2 - criar o componente de carrinho
+  // 3 - criar o item do carrinho
+  // 4 - remover um item 
+  
+
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <ul>
+        {
+          produtos.map(produto => (
+            <li key={produto.titulo}>
+              
+              {produto.titulo}
+              
+            </li>
+          ))
+        }
+      </ul>
     </>
   )
 }
 
-export default App
