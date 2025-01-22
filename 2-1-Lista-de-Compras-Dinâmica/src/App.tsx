@@ -11,9 +11,7 @@ import { ShoppingList } from './components/ShoppingList';
 export function App() {
   const [listProduct, setLidtProduct] = useState<IProduto[]>([])
 
-  function addProductInList({ id, nome, quantidade }: IProduto): void {
-
-    const produto: IProduto = { id, nome, quantidade }
+  function addProductInList(produto: IProduto): void {
 
     setLidtProduct(prevListProduct => [...prevListProduct, produto])
 
@@ -23,9 +21,24 @@ export function App() {
     setLidtProduct((prevProdutos) => prevProdutos.filter( produto => produto.id !== id))
   }
   
-  // function addMaisQuantidade({quantidade}: IProduto): void{
-  // }
-    
+  function handleAdd({ id }: IProduto): void {
+    setLidtProduct((prevListProduct) =>
+      prevListProduct.map((produto) =>
+        produto.id === id
+          ? { ...produto, quantidade:produto.quantidade + 1 }
+          : produto
+      )
+    );
+  }
+
+  function handleRemove({id}:IProduto):void{
+    setLidtProduct((prevListProduct) => 
+      prevListProduct.map((produto) => 
+      produto.id === id 
+  ? {...produto, quantidade: produto.quantidade > 0 ? produto.quantidade - 1 : 0}
+  : produto
+))
+  }
 
   return (
     <>
@@ -37,7 +50,8 @@ export function App() {
         <div className={styles.listaContainer}>
           <ShoppingList produtos={listProduct} 
           removerProduto={removerProduto}
-
+          handleAdd={handleAdd}
+          handleRemove={handleRemove}
           />
         </div>
       </main>

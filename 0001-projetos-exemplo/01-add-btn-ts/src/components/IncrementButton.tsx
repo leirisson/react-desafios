@@ -1,4 +1,4 @@
-
+import styles from './IncrementButton.module.css'
 
 // interface das props do componente
 interface IncrementButtonProps {
@@ -8,7 +8,7 @@ interface IncrementButtonProps {
 export function IncrementButtonProps({onIncrement}: IncrementButtonProps){
     return(
         <>
-        <button onClick={onIncrement}>+</button>
+        <button className={styles.increment} onClick={onIncrement}>+</button>
         </>
     )
 }

@@ -32,7 +32,7 @@ export function ShoppingForm({addProductInList}: PropsForm) {
 
   function handleQuantidade(event: Change){
     const quantidade  = event.target.value
-    setQuantidade(quantidade)
+    setQuantidade(Number(quantidade))
   }
 
   return (

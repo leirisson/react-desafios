@@ -1,3 +1,4 @@
+import styles from './DecrementButton.module.css'
 
 interface DecrementButtonProps {
     onDecrement: () => void;
@@ -7,7 +8,7 @@ interface DecrementButtonProps {
 export function DecrementButtonProps({ onDecrement }: DecrementButtonProps) {
     return(
         <>
-        <button onClick={onDecrement}>-</button>
+        <button className={styles.decrement} onClick={onDecrement}>-</button>
         </>
     )
 }
